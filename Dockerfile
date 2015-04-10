@@ -12,6 +12,16 @@ RUN apt-get install -y bsdmainutils curl file screen
 RUN apt-get install -y android-tools-adb android-tools-fastboot
 RUN apt-get install -y bison build-essential flex git gnupg gperf libesd0-dev libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop openjdk-7-jdk openjdk-7-jre pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev
 RUN apt-get install -y ccache g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-gplv2-dev lib32z1-dev
+
+# Make sure the packages recommended by Abhisek Devkota are installed
+# See http://goo.gl/MSSsR0
+RUN apt-get install -y bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev
+RUN apt-get install -y libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop openjdk-7-jdk openjdk-7-jre
+RUN apt-get install -y pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev
+RUN apt-get install -y g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-gplv2-dev lib32z1-dev
+
+# Install other useful tools
+RUN apt-get install -y screen
 RUN apt-get install -y tig rsync
 
 # Workaround for apt-get upgrade issue described here: https://github.com/dotcloud/docker/issues/1724
